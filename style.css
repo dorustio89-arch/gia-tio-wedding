@@ -20,6 +20,23 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:22px 7
 .gallery-section{background:#f2eae3}.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:780px;margin:34px auto}.gallery img{width:100%;height:350px;object-fit:cover;object-position:center;cursor:zoom-in;border:7px solid #fffaf5;box-shadow:0 8px 25px #5c46331a;transition:transform .35s}.gallery img:hover{transform:translateY(-5px)}.gallery-note{font:italic 12px var(--serif);color:var(--muted)}
 .rsvp-section{background:#fffaf5}.rsvp-section form{max-width:520px;margin:32px auto 0;text-align:left;padding:28px;background:#f7eee6;border:1px solid var(--line)}.rsvp-section label{display:block;font-size:11px;margin:15px 0;color:#66564b}.rsvp-section input,.rsvp-section select,.rsvp-section textarea{display:block;width:100%;margin-top:7px;padding:13px;border:1px solid #ddcfc2;background:#fffdfb;font:13px var(--sans);color:var(--ink)}.rsvp-section form button{width:100%;margin-top:12px}#formStatus{text-align:center;color:#79634f;font-size:12px;min-height:18px}
 .closing{background:#eee4dc}.closing h2{max-width:650px}.closing .script-name{color:#6c5748;margin:20px}.closing small{font-size:10px;letter-spacing:.2em;color:var(--muted)}
+/* Mengatur ulang wadah teks hero agar memenuhi tinggi area foto */
+.hero-content {
+  margin: 0 auto !important;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  padding-top: 8vh !important;    /* Atur jarak nama pengantin dari atas */
+  padding-bottom: 14vh !important; /* Atur jarak tanggal dari bawah */
+}
+
+/* Mendorong kalimat "Two hearts..." dan tanggal turun ke bawah */
+.hero-content .script-name + * {
+  margin-top: auto !important;
+}
+
 footer{text-align:center;background:#655347;color:#f6eadd;padding:22px;font-size:9px;letter-spacing:.2em}
 .music-button{position:fixed;right:18px;bottom:18px;z-index:10;width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:#fffaf2;color:#725b49;font-size:20px;box-shadow:0 4px 18px #39291f22;cursor:pointer;animation:musicPulse 2.8s infinite}
 #lightbox{display:none;position:fixed;inset:0;z-index:60;background:#241b17ed;align-items:center;justify-content:center;padding:25px}#lightbox.show{display:flex}#lightbox img{max-width:94vw;max-height:88vh;object-fit:contain}#closeLightbox{position:absolute;right:22px;top:12px;background:none;border:0;color:white;font-size:40px;cursor:pointer}
