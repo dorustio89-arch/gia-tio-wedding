@@ -28,8 +28,8 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:22px 7
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  padding-top: 16vh !important;    /* Atur jarak nama pengantin dari atas */
-  padding-bottom: 14vh !important; /* Atur jarak tanggal dari bawah */
+  padding-top: 17vh !important;    /* Atur jarak nama pengantin dari atas */
+  padding-bottom: 15vh !important; /* Atur jarak tanggal dari bawah */
 }
 
 /* Mendorong kalimat "Two hearts..." dan tanggal turun ke bawah */
@@ -625,7 +625,7 @@ html, body {
 /* Menggeser konten halaman pembuka (dari ornamen bulat sampai We invite you) ke atas */
 .opening {
   justify-content: flex-start !important;
-  padding-top: 6vh !important; /* Perkecil angka ini jika ingin lebih naik lagi */
+  padding-top: 7vh !important; /* Perkecil angka ini jika ingin lebih naik lagi */
 }
 
 /* Merapatkan sedikit jarak bawah bingkai foto agar tulisan "Gia & Tio" naik ke area tangan */
