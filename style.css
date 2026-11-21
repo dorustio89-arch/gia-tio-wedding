@@ -28,7 +28,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:22px 7
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  padding-top: 8vh !important;    /* Atur jarak nama pengantin dari atas */
+  padding-top: 25vh !important;    /* Atur jarak nama pengantin dari atas */
   padding-bottom: 14vh !important; /* Atur jarak tanggal dari bawah */
 }
 
