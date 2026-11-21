@@ -28,7 +28,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:22px 7
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  padding-top: 15vh !important;    /* Atur jarak nama pengantin dari atas */
+  padding-top: 16vh !important;    /* Atur jarak nama pengantin dari atas */
   padding-bottom: 14vh !important; /* Atur jarak tanggal dari bawah */
 }
 
@@ -625,10 +625,10 @@ html, body {
 /* Menggeser konten halaman pembuka (dari ornamen bulat sampai We invite you) ke atas */
 .opening {
   justify-content: flex-start !important;
-  padding-top: 5vh !important; /* Perkecil angka ini jika ingin lebih naik lagi */
+  padding-top: 6vh !important; /* Perkecil angka ini jika ingin lebih naik lagi */
 }
 
 /* Merapatkan sedikit jarak bawah bingkai foto agar tulisan "Gia & Tio" naik ke area tangan */
 .opening-photo {
-  margin-bottom: 10px !important;
+  margin-bottom: 8px !important;
 }
