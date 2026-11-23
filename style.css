@@ -526,7 +526,7 @@ h2 {
 .wishes-section {
     background: 
         linear-gradient(rgba(251, 248, 244, 0.85), rgba(251, 248, 244, 0.90)),
-        url('images/prewed2.jpg') center 25% / cover no-repeat !important;
+        url('images/opening2.jpg') center 25% / cover no-repeat !important;
     position: relative;
 }
 
@@ -540,7 +540,7 @@ h2 {
 .closing {
     background: 
         linear-gradient(rgba(238, 228, 220, 0.80), rgba(238, 228, 220, 0.86)),
-        url('images/opening2.jpg') center 30% / cover no-repeat !important;
+        url('images/prewed15.jpg') center 30% / cover no-repeat !important;
     position: relative;
 }
 
