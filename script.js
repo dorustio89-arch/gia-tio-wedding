@@ -407,3 +407,29 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Ganti '.gallery-item' dengan class elemen foto di galerimu
+    const galleryPhotos = document.querySelectorAll('.gallery-item');
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      // Menyaring foto yang baru masuk ke layar pada saat bersamaan
+      const visibleEntries = entries.filter(entry => entry.isIntersecting);
+
+      visibleEntries.forEach((entry, index) => {
+        // Memberi jeda 250ms (0.25 detik) antar foto agar muncul 1 per 1
+        setTimeout(() => {
+          entry.target.classList.add('show');
+        }, index * 250);
+
+        // Hentikan pantauan agar animasi tidak mengulang terus saat scroll atas-bawah
+        obs.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.15 // Animasi mulai saat 15% bagian foto terlihat
+    });
+
+    galleryPhotos.forEach(photo => observer.observe(photo));
+  });
+</script>
