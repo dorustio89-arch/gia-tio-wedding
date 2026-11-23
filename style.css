@@ -645,3 +645,19 @@ html, body {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Memastikan layar pembuka dan tombol selalu berada di lapisan teratas dan bisa diklik */
+.opening {
+  z-index: 9999 !important;
+}
+
+.opening button,
+.opening a,
+#openBtn,
+#bukaUndangan {
+  position: relative !important;
+  z-index: 10000 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
