@@ -632,3 +632,16 @@ html, body {
 .opening-photo {
   margin-bottom: 8px !important;
 }
+
+/* Kondisi awal foto sebelum terlihat di layar (transparan & agak turun) */
+.gallery-item {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Kondisi saat foto muncul di layar */
+.gallery-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
