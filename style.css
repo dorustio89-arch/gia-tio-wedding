@@ -20,7 +20,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:22px 7
 .gallery-section{background:#f2eae3}.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:780px;margin:34px auto}.gallery img{width:100%;height:350px;object-fit:cover;object-position:center;cursor:zoom-in;border:7px solid #fffaf5;box-shadow:0 8px 25px #5c46331a;transition:transform .35s}.gallery img:hover{transform:translateY(-5px)}.gallery-note{font:italic 12px var(--serif);color:var(--muted)}
 .rsvp-section{background:#fffaf5}.rsvp-section form{max-width:520px;margin:32px auto 0;text-align:left;padding:28px;background:#f7eee6;border:1px solid var(--line)}.rsvp-section label{display:block;font-size:11px;margin:15px 0;color:#66564b}.rsvp-section input,.rsvp-section select,.rsvp-section textarea{display:block;width:100%;margin-top:7px;padding:13px;border:1px solid #ddcfc2;background:#fffdfb;font:13px var(--sans);color:var(--ink)}.rsvp-section form button{width:100%;margin-top:12px}#formStatus{text-align:center;color:#79634f;font-size:12px;min-height:18px}
 .closing{background:#eee4dc}.closing h2{max-width:650px}.closing .script-name{color:#6c5748;margin:20px}.closing small{font-size:10px;letter-spacing:.2em;color:var(--muted)}
-/* Mengatur ulang wadah teks hero agar memenuhi tinggi area foto */
+/* Mengatur ulang wadah teks hero agar naik ke ruang kosong atas */
 .hero-content {
   margin: 0 auto !important;
   flex: 1;
@@ -28,9 +28,21 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:22px 7
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  padding-top: 17vh !important;    /* Atur jarak nama pengantin dari atas */
-  padding-bottom: 15vh !important; /* Atur jarak tanggal dari bawah */
+  padding-top: 4vh !important;      /* Diubah dari 17vh menjadi 4vh agar naik ke atas */
+  padding-bottom: 15vh !important;
 }
+
+/* Merapatkan jarak antarbaris tulisan agar tidak turun menyentuh dahi */
+.hero-content h1 {
+  font-size: clamp(2.6rem, 6.5vw, 4.2rem) !important;
+  line-height: 1.05 !important;
+  margin: 2px 0 6px !important;
+}
+
+.hero-content p {
+  margin: 2px 0 !important;
+}
+
 
 /* Mendorong kalimat "Two hearts..." dan tanggal turun ke bawah */
 .hero-content .script-name + * {
