@@ -755,3 +755,28 @@ header, nav, .navbar {
     bottom: 22px;
   }
 }
+
+/* =========================================================
+   KHUSUS TAMPILAN LAPTOP / DESKTOP (HP TIDAK AKAN BERUBAH)
+   ========================================================= */
+@media (min-width: 769px) {
+
+  /* 1. Jika foto dipasang lewat CSS background-image */
+  .hero, #hero, .hero-section, header + section {
+    height: 100vh !important;
+    min-height: 100vh !important;
+    background-size: cover !important;
+    /* Ubah angka kedua (35%) jika ingin menggeser foto naik/turun */
+    background-position: center 35% !important; 
+    background-repeat: no-repeat !important;
+  }
+
+  /* 2. Jika foto dipasang lewat tag <img> di dalam HTML */
+  .hero img, #hero img, .hero-section img, .hero-bg {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    /* Mengatur titik fokus agar lampu gantung & bambu tetap proporsional */
+    object-position: center 35% !important; 
+  }
+}
