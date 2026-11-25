@@ -792,3 +792,42 @@ header, nav, .navbar {
     object-position: center 35% !important; 
   }
 }
+.peacock-wrapper {
+  position: absolute;
+  bottom: -5px;
+  width: clamp(110px, 18vw, 210px); /* Proporsional di HP maupun Laptop */
+  z-index: 3;
+  pointer-events: none; /* Agar tidak menghalangi klik tombol musik/scroll */
+  user-select: none;
+}
+
+.peacock-left {
+  left: -8px;
+}
+
+.peacock-right {
+  right: -8px;
+  transform: scaleX(-1); /* Membalik posisi merak kanan agar saling berhadapan */
+}
+
+/* Animasi gerakan halus seperti bernapas & ekor berayun pelan */
+.peacock-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform-origin: bottom center;
+  animation: peacockGrace 5s ease-in-out infinite alternate;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes peacockGrace {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(1.8deg) scale(1.02);
+  }
+  100% {
+    transform: rotate(-1.2deg) scale(1.01);
+  }
+}
