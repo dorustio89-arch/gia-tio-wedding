@@ -823,3 +823,60 @@ header, nav, .navbar {
   0% { transform: rotate(0deg) scale(1); }
   100% { transform: rotate(2deg) scale(1.03); }
 }
+/* =========================================================
+   ANIMASI ELEGAN UNTUK SEPASANG BURUNG MERAK
+   ========================================================= */
+
+/* 1. Efek muncul halus dari bawah saat halaman baru terbuka */
+.peacock-left {
+  animation: fadeSlideUpLeft 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.peacock-right {
+  animation: fadeSlideUpRight 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* 2. Gerakan bernapas & ekor berayun pelan secara terus-menerus */
+.peacock-img {
+  transform-origin: bottom center;
+  animation: peacockBreathing 4.5s ease-in-out 1.4s infinite alternate;
+  /* Sedikit bayangan lembut agar menyatu dengan foto latar */
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+}
+
+/* Keyframes Muncul Kiri */
+@keyframes fadeSlideUpLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-15px, 25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+/* Keyframes Muncul Kanan (tetap mempertahankan cermin scaleX(-1)) */
+@keyframes fadeSlideUpRight {
+  0% {
+    opacity: 0;
+    transform: scaleX(-1) translate(-15px, 25px);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(-1) translate(0, 0);
+  }
+}
+
+/* Keyframes Gerakan Bernapas & Ayunan Anggun */
+@keyframes peacockBreathing {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(1.5deg) scale(1.025);
+  }
+  100% {
+    transform: rotate(-1deg) scale(1.01);
+  }
+}
