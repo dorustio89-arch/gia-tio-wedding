@@ -1006,4 +1006,33 @@ header, nav, .navbar {
     transform: rotateY(4deg) translateY(-4px);
   }
 }
+/* =========================================================
+   EFEK SLOW ZOOM PADA BACKGROUND TANGAN (.opening)
+   ========================================================= */
+.opening {
+  overflow: hidden !important; /* Mencegah gambar melebar keluar layar saat zoom */
+}
+
+/* Lapisan khusus untuk background foto tangan agar bisa di-zoom terpisah */
+.opening::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Ganti 'images/bg-opening.jpg' sesuai dengan URL/nama file foto tangan di baris 3 style.css kamu */
+  background-image: linear-gradient(rgba(30, 24, 18, 0.45), rgba(30, 24, 18, 0.55)), url("images/bg-opening.jpg");
+  background-size: cover;
+  background-position: center center;
+  z-index: 0 !important; /* Berada di belakang semua teks & tombol (yang z-index-nya 1) */
+  pointer-events: none;
+  animation: bgHandZoom 14s ease-in-out infinite alternate;
+}
+
+@keyframes bgHandZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.12);
+  }
+}
 
