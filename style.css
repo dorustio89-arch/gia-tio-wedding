@@ -792,91 +792,103 @@ header, nav, .navbar {
     object-position: center 35% !important; 
   }
 }
-.peacock-wrapper {
+/* =========================================================
+   BINGKAI BUNGA (FLOWERS) & ANIMASI ANGIN SEPOI-SEPOI
+   ========================================================= */
+
+/* Memastikan wadah hero rapi dan tidak memunculkan scrollbar samping */
+.hero, #hero, .hero-section {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Wadah Dasar Bingkai Bunga */
+.flower-frame {
   position: absolute;
-  bottom: -6px;
-  width: clamp(120px, 20vw, 230px);
-  z-index: 3;
-  pointer-events: none;
+  width: clamp(140px, 24vw, 270px); /* Otomatis menyesuaikan ukuran HP & Laptop */
+  height: auto;
+  z-index: 3; /* Di atas foto latar, di bawah tombol musik */
+  pointer-events: none; /* Sangat penting: klik tembus ke tombol musik & menu */
   user-select: none;
 }
 
-.peacock-left {
-  left: -8px;
+/* --- POSISI SUDUT BAWAH --- */
+.flower-bottom-left {
+  bottom: -10px;
+  left: -10px;
+  animation: flowerEntranceLeft 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.peacock-right {
-  right: -8px;
-  transform: scaleX(-1); /* Otomatis membalik gambar kanan agar saling berhadapan */
+.flower-bottom-right {
+  bottom: -10px;
+  right: -10px;
+  transform: scaleX(-1); /* Mencerminkan gambar agar simetris */
+  animation: flowerEntranceRight 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.peacock-img {
+/* --- POSISI SUDUT ATAS (Jika Diaktifkan) --- */
+.flower-top-left {
+  top: 58px; /* Pas di bawah bar navigasi G&T */
+  left: -10px;
+  transform: scaleY(-1); /* Membalik vertikal */
+  animation: flowerEntranceTopLeft 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.flower-top-right {
+  top: 58px;
+  right: -10px;
+  transform: scale(-1, -1); /* Membalik horizontal & vertikal */
+  animation: flowerEntranceTopRight 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* --- GAMBAR & ANIMASI MELAMBAI LEMBUT --- */
+.flower-img {
   width: 100%;
   height: auto;
   display: block;
-  transform-origin: bottom center;
-  animation: peacockGrace 5s ease-in-out infinite alternate;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  transform-origin: bottom left;
+  animation: flowerSway 5s ease-in-out 1.4s infinite alternate;
+  filter: drop-shadow(0 5px 12px rgba(0, 0, 0, 0.28));
 }
 
-@keyframes peacockGrace {
-  0% { transform: rotate(0deg) scale(1); }
-  100% { transform: rotate(2deg) scale(1.03); }
-}
-/* =========================================================
-   ANIMASI ELEGAN UNTUK SEPASANG BURUNG MERAK
-   ========================================================= */
-
-/* 1. Efek muncul halus dari bawah saat halaman baru terbuka */
-.peacock-left {
-  animation: fadeSlideUpLeft 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+/* Keyframes Animasi Muncul Saat Halaman Dibuka */
+@keyframes flowerEntranceLeft {
+  0% { opacity: 0; transform: translate(-20px, 20px); }
+  100% { opacity: 1; transform: translate(0, 0); }
 }
 
-.peacock-right {
-  animation: fadeSlideUpRight 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+@keyframes flowerEntranceRight {
+  0% { opacity: 0; transform: scaleX(-1) translate(-20px, 20px); }
+  100% { opacity: 1; transform: scaleX(-1) translate(0, 0); }
 }
 
-/* 2. Gerakan bernapas & ekor berayun pelan secara terus-menerus */
-.peacock-img {
-  transform-origin: bottom center;
-  animation: peacockBreathing 4.5s ease-in-out 1.4s infinite alternate;
-  /* Sedikit bayangan lembut agar menyatu dengan foto latar */
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
+@keyframes flowerEntranceTopLeft {
+  0% { opacity: 0; transform: scaleY(-1) translate(-20px, 20px); }
+  100% { opacity: 1; transform: scaleY(-1) translate(0, 0); }
 }
 
-/* Keyframes Muncul Kiri */
-@keyframes fadeSlideUpLeft {
-  0% {
-    opacity: 0;
-    transform: translate(-15px, 25px);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
+@keyframes flowerEntranceTopRight {
+  0% { opacity: 0; transform: scale(-1, -1) translate(-20px, 20px); }
+  100% { opacity: 1; transform: scale(-1, -1) translate(0, 0); }
 }
 
-/* Keyframes Muncul Kanan (tetap mempertahankan cermin scaleX(-1)) */
-@keyframes fadeSlideUpRight {
-  0% {
-    opacity: 0;
-    transform: scaleX(-1) translate(-15px, 25px);
-  }
-  100% {
-    opacity: 1;
-    transform: scaleX(-1) translate(0, 0);
-  }
-}
-
-/* Keyframes Gerakan Bernapas & Ayunan Anggun */
-@keyframes peacockBreathing {
+/* Keyframes Animasi Tertiup Angin Pelan */
+@keyframes flowerSway {
   0% {
     transform: rotate(0deg) scale(1);
   }
   50% {
-    transform: rotate(1.5deg) scale(1.025);
+    transform: rotate(2.5deg) scale(1.02);
   }
   100% {
-    transform: rotate(-1deg) scale(1.01);
+    transform: rotate(-1.5deg) scale(1.01);
   }
 }
+
+/* Penyesuaian Ukuran Khusus Layar HP Kecil */
+@media (max-width: 480px) {
+  .flower-frame {
+    width: 145px; /* Pas di sudut tanpa menabrak tulisan "SCROLL TO EXPLORE" */
+  }
+}
+
