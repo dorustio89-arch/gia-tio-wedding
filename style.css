@@ -792,16 +792,13 @@ header, nav, .navbar {
     object-position: center 35% !important; 
   }
 }
-/* Wadah Ornamen Merak */
-.peacock-ornament {
+.peacock-wrapper {
   position: absolute;
   bottom: -6px;
-  width: clamp(135px, 22vw, 220px); /* Proporsional di HP & Laptop */
-  height: auto;
+  width: clamp(120px, 20vw, 230px);
   z-index: 3;
-  pointer-events: none; /* Klik tetap tembus ke tombol musik & scroll */
+  pointer-events: none;
   user-select: none;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
 }
 
 .peacock-left {
@@ -810,36 +807,19 @@ header, nav, .navbar {
 
 .peacock-right {
   right: -8px;
-  transform: scaleX(-1); /* Membalik merak kanan agar saling menatap */
+  transform: scaleX(-1); /* Otomatis membalik gambar kanan agar saling berhadapan */
 }
 
-/* Animasi Tubuh & Kepala Merak Mengangguk Lembut */
-.peacock-body {
-  transform-origin: 85px 155px;
-  animation: peacockNod 4.5s ease-in-out infinite alternate;
+.peacock-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform-origin: bottom center;
+  animation: peacockGrace 5s ease-in-out infinite alternate;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
 }
 
-/* Animasi Ekor Berayun Pelan */
-.peacock-tail {
-  transform-origin: 75px 160px;
-  animation: tailSway 5.5s ease-in-out infinite alternate;
+@keyframes peacockGrace {
+  0% { transform: rotate(0deg) scale(1); }
+  100% { transform: rotate(2deg) scale(1.03); }
 }
-
-@keyframes peacockNod {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(3.5deg);
-  }
-}
-
-@keyframes tailSway {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-  100% {
-    transform: rotate(-2.5deg) scale(1.02);
-  }
-}
-
