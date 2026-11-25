@@ -891,92 +891,96 @@ header, nav, .navbar {
     width: 145px; /* Pas di sudut tanpa menabrak tulisan "SCROLL TO EXPLORE" */
   }
 }
-
 /* =========================================================
-   BINGKAI BUNGA LILY FULL FRAME (HP & LAPTOP)
+   1. BINGKAI BUNGA MELEBAR KE TEPI LAYAR (AREA TENGAH LEGA)
    ========================================================= */
 .full-flower-frame {
-  position: absolute;
-  top: 58px;      /* Mulai tepat di bawah bar menu (G&T) agar tidak menutupi menu */
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 3;     /* Di atas foto latar, di bawah tombol musik */
-  pointer-events: none; /* Klik tetap tembus ke tombol musik & scroll */
-  user-select: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 12px;  /* Jarak aman dari tepi layar HP */
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-.full-frame-img {
-  width: 100%;
-  height: 100%;
-  /* Memastikan garis emas & bunga melar mengikuti proporsi layar HP maupun Laptop */
-  object-fit: fill; 
-  display: block;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
-  animation: frameEntrance 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards,
-             frameBreathing 6s ease-in-out 1.5s infinite alternate;
-}
-
-/* Efek muncul halus membesar sedikit dari dalam */
-@keyframes frameEntrance {
-  0% {
-    opacity: 0;
-    transform: scale(1.06);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Efek bernapas sangat pelan agar bunga terlihat hidup */
-@keyframes frameBreathing {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.015);
-  }
-}
-
-/* Penyesuaian khusus layar Laptop agar bingkai tidak terlalu melebar ke samping */
-@media (min-width: 769px) {
-  .full-flower-frame {
-    padding: 20px 6vw; /* Memberi jarak kanan-kiri yang elegan di layar lebar */
-  }
-}
-/* Pastikan <header> memiliki position: relative agar bingkai pas di dalam area foto */
-header {
-  position: relative !important;
+  position: absolute !important;
+  top: 56px !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: calc(100% - 56px) !important;
+  z-index: 3 !important; /* Di bawah teks & tombol */
+  pointer-events: none !important;
+  padding: 0 !important; /* Hilangkan padding agar bingkai mepet tepi */
   overflow: hidden !important;
 }
 
-.full-flower-frame {
-  position: absolute;
-  top: 58px;      /* Mulai tepat di bawah bar menu G&T */
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 3;
-  pointer-events: none;
-  user-select: none;
-  padding: 12px;
-  box-sizing: border-box;
+.full-frame-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: fill !important;
+  display: block !important;
+  /* Sedikit diperbesar (1.06) agar bunga sudut terdorong ke tepi luar layar */
+  transform: scale(1.06);
+  animation: frameBreathing 6s ease-in-out infinite alternate;
 }
 
-.full-frame-img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  display: block;
-  /* Tambahkan baris di bawah ini JIKA background gambar masih hitam agar otomatis transparan */
-  /* mix-blend-mode: screen; */
-  animation: frameEntrance 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards,
-             frameBreathing 6s ease-in-out 1.5s infinite alternate;
+@keyframes frameBreathing {
+  0% { transform: scale(1.05); }
+  100% { transform: scale(1.08); }
 }
+
+/* =========================================================
+   2. POSISI TEKS HERO RAPI & TIDAK TERTUTUP BUNGA
+   ========================================================= */
+.hero-content {
+  position: relative !important;
+  z-index: 6 !important; /* Pastikan selalu di atas bingkai bunga */
+  padding-top: 12vh !important; /* Turunkan sedikit dari bunga lily kiri atas */
+  padding-bottom: 12vh !important;
+}
+
+.hero-content .eyebrow {
+  font-size: clamp(0.65rem, 2.2vw, 0.85rem) !important;
+  letter-spacing: 3px !important;
+  margin-bottom: 4px !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content .script-name {
+  font-size: clamp(2.6rem, 8vw, 4.2rem) !important;
+  line-height: 1.05 !important;
+  margin: 4px 0 12px !important;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.65);
+}
+
+/* Mengelompokkan caption & tanggal agar tidak berceceran ke bawah */
+.hero-content .hero-caption {
+  font-size: clamp(0.85rem, 2.8vw, 1.05rem) !important;
+  margin-top: auto !important; /* Mendorong caption & tanggal rapi ke area bawah tengah */
+  margin-bottom: 6px !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+}
+
+.hero-content .gold-rule {
+  margin: 6px auto !important;
+}
+
+.hero-content strong {
+  font-size: clamp(0.72rem, 2.4vw, 0.9rem) !important;
+  letter-spacing: 2px !important;
+  margin-bottom: 35px !important; /* Beri ruang untuk "SCROLL TO EXPLORE" */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
+}
+
+/* Pastikan tombol scroll & musik di lapisan paling atas */
+.scroll-cue {
+  position: relative !important;
+  z-index: 6 !important;
+  bottom: 18px !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+/* Penyesuaian khusus layar Laptop agar bingkai tidak terlalu melebar */
+@media (min-width: 769px) {
+  .full-flower-frame {
+    padding: 10px 4vw !important;
+  }
+  .hero-content {
+    padding-top: 9vh !important;
+  }
+}
+
