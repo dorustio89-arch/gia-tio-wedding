@@ -892,3 +892,62 @@ header, nav, .navbar {
   }
 }
 
+/* =========================================================
+   BINGKAI BUNGA LILY FULL FRAME (HP & LAPTOP)
+   ========================================================= */
+.full-flower-frame {
+  position: absolute;
+  top: 58px;      /* Mulai tepat di bawah bar menu (G&T) agar tidak menutupi menu */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;     /* Di atas foto latar, di bawah tombol musik */
+  pointer-events: none; /* Klik tetap tembus ke tombol musik & scroll */
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;  /* Jarak aman dari tepi layar HP */
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.full-frame-img {
+  width: 100%;
+  height: 100%;
+  /* Memastikan garis emas & bunga melar mengikuti proporsi layar HP maupun Laptop */
+  object-fit: fill; 
+  display: block;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
+  animation: frameEntrance 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+             frameBreathing 6s ease-in-out 1.5s infinite alternate;
+}
+
+/* Efek muncul halus membesar sedikit dari dalam */
+@keyframes frameEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(1.06);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Efek bernapas sangat pelan agar bunga terlihat hidup */
+@keyframes frameBreathing {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.015);
+  }
+}
+
+/* Penyesuaian khusus layar Laptop agar bingkai tidak terlalu melebar ke samping */
+@media (min-width: 769px) {
+  .full-flower-frame {
+    padding: 20px 6vw; /* Memberi jarak kanan-kiri yang elegan di layar lebar */
+  }
+}
