@@ -47,6 +47,60 @@
     <div class="full-flower-frame" aria-hidden="true">
       <img src="./images/flower.png" alt="" class="full-frame-img">
     </div>
+    <style>
+  /* Paksa bingkai bunga melebar mentok ke pinggir layar */
+  header .full-flower-frame {
+    position: absolute !important;
+    top: 56px !important;
+    left: -12px !important;
+    right: -12px !important;
+    bottom: -12px !important;
+    width: calc(100% + 24px) !important;
+    height: calc(100% - 44px) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+  }
+
+  header .full-flower-frame .full-frame-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: fill !important;
+    transform: scale(1.08) !important;
+  }
+
+  /* Paksa semua teks & tombol naik ke atas lapisan bunga (z-index: 10) */
+  header .hero-content {
+    position: relative !important;
+    z-index: 10 !important;
+    padding-top: 10vh !important;
+    padding-bottom: 10vh !important;
+  }
+
+  header .script-name {
+    font-size: clamp(2.5rem, 8vw, 4rem) !important;
+    margin: 4px 0 8px !important;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.8) !important;
+  }
+
+  header .eyebrow,
+  header .hero-caption,
+  header strong,
+  header .scroll-cue {
+    position: relative !important;
+    z-index: 10 !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.85) !important;
+  }
+
+  header .hero-caption {
+    margin-top: auto !important;
+  }
+
+  header strong {
+    margin-bottom: 42px !important;
+  }
+</style>
   </header>
   <main>
     <section id="story" class="section intro reveal">
