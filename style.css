@@ -951,3 +951,32 @@ header, nav, .navbar {
     padding: 20px 6vw; /* Memberi jarak kanan-kiri yang elegan di layar lebar */
   }
 }
+/* Pastikan <header> memiliki position: relative agar bingkai pas di dalam area foto */
+header {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.full-flower-frame {
+  position: absolute;
+  top: 58px;      /* Mulai tepat di bawah bar menu G&T */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  pointer-events: none;
+  user-select: none;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.full-frame-img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  /* Tambahkan baris di bawah ini JIKA background gambar masih hitam agar otomatis transparan */
+  /* mix-blend-mode: screen; */
+  animation: frameEntrance 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+             frameBreathing 6s ease-in-out 1.5s infinite alternate;
+}
