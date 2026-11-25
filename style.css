@@ -891,5 +891,71 @@ header, nav, .navbar {
     width: 145px; /* Pas di sudut tanpa menabrak tulisan "SCROLL TO EXPLORE" */
   }
 }
+/* =========================================================
+   ANIMASI ELEGAN UNTUK COVER PEMBUKA (.opening)
+   ========================================================= */
 
+/* 1. Animasi Masuk Berurutan untuk Konten Tengah (Bingkai Arch, Nama, Tombol) */
+.opening > div,
+.opening .opening-content,
+.opening .card {
+  animation: coverReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes coverReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 2. Animasi Berputar & Bernapas Lembut pada Ornamen Bunga Kiri Atas & Kanan Bawah */
+.opening svg,
+.opening img[src*="flower"],
+.opening img[src*="bunga"],
+.opening .ornament,
+.opening .flower {
+  animation: flowerSpinGentle 14s ease-in-out infinite alternate;
+  transform-origin: center center;
+  pointer-events: none; /* Memastikan tidak menghalangi klik */
+}
+
+@keyframes flowerSpinGentle {
+  0% {
+    transform: rotate(-8deg) scale(0.96);
+  }
+  100% {
+    transform: rotate(12deg) scale(1.04);
+  }
+}
+
+/* 3. Animasi Denyut Cahaya Halus pada Tombol "BUKA UNDANGAN" */
+.opening button,
+.opening a.btn,
+#openBtn,
+#bukaUndangan {
+  position: relative;
+  z-index: 10 !important;
+  cursor: pointer;
+  animation: buttonPulseGlow 2.4s ease-in-out infinite;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.opening button:hover,
+#openBtn:hover {
+  transform: scale(1.03);
+}
+
+@keyframes buttonPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(197, 160, 101, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(197, 160, 101, 0);
+  }
+}
 
