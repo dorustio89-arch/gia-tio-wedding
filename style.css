@@ -1061,3 +1061,61 @@ header, nav, .navbar {
   0% { opacity: 0.45; transform: translateY(0px); }
   100% { opacity: 1; transform: translateY(-6px); }
 }
+/* =========================================================
+   POLESAN BAGIAN COUNTDOWN & RANGKAIAN ACARA (#events)
+   ========================================================= */
+
+/* 1. Efek Mengambang & Kilau Emas Halus pada Kotak Timer */
+.timer > div {
+  border: 1px solid rgba(197, 160, 101, 0.4) !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05) !important;
+  transition: transform 0.3s ease, border-color 0.3s ease !important;
+}
+
+.timer > div:hover {
+  transform: translateY(-4px);
+  border-color: #c5a065 !important;
+}
+
+/* 2. Kartu Akad Nikah & Resepsi Lebih Tegas & Elegan */
+#events .event-card {
+  border: 1px solid rgba(197, 160, 101, 0.45) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06) !important;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease !important;
+}
+
+#events .event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 34px rgba(197, 160, 101, 0.16) !important;
+}
+
+/* Menegaskan Jam Acara (09.00 WIB & 10.00 WIB) */
+#events .event-card h4 {
+  color: #9e7840 !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  margin: 8px 0 12px !important;
+  padding-bottom: 10px !important;
+  border-bottom: 1px dashed rgba(197, 160, 101, 0.45) !important;
+}
+
+/* 3. Tombol Google Maps Lebih Menonjol & Mudah Diklik */
+#events .outline-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  margin-top: 26px !important;
+  padding: 13px 26px !important;
+  border-width: 1.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 1.5px !important;
+  transition: all 0.3s ease !important;
+}
+
+#events .outline-button:hover {
+  background-color: #c5a065 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(197, 160, 101, 0.35) !important;
+}
