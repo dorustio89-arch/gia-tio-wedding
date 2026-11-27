@@ -1120,24 +1120,58 @@ header, nav, .navbar {
   box-shadow: 0 8px 20px rgba(197, 160, 101, 0.35) !important;
 }
 /* =========================================================
-   POLESAN BAGIAN GALERI FOTO (#gallery)
+   POLESAN GALERI BAHAGIA (.gallery - 10 FOTO)
    ========================================================= */
-#gallery img,
-.gallery-grid img,
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover !important;
-  /* Mengunci titik fokus ke bagian atas-tengah agar kepala & wajah tidak terpotong */
-  object-position: center 20% !important;
-  border-radius: 10px;
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease !important;
-  cursor: pointer;
+#gallery .gallery {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important; /* 2 kolom pas di layar HP */
+  gap: 10px !important;
+  margin-top: 24px !important;
 }
 
-#gallery img:hover,
-.gallery-grid img:hover,
-.gallery-item img:hover {
-  transform: scale(1.04);
-  filter: brightness(1.04);
+#gallery .gallery img {
+  width: 100% !important;
+  aspect-ratio: 3 / 4 !important; /* Rasio foto portrait prewedding agar kepala aman */
+  height: auto !important;
+  object-fit: cover !important;
+  object-position: center 20% !important; /* Fokus ke area wajah */
+  border-radius: 12px !important;
+  border: 1px solid rgba(197, 160, 101, 0.35) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08) !important;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease !important;
+  cursor: pointer !important;
+}
+
+/* Membuat Foto ke-1 dan Foto ke-6 tampil lebar penuh (Highlight) di HP */
+/* Dengan 2 foto lebar + 8 foto 2-kolom = 6 baris penuh tanpa sisa ganjil! */
+#gallery .gallery img:nth-child(1),
+#gallery .gallery img:nth-child(6) {
+  grid-column: span 2 !important;
+  aspect-ratio: 16 / 10 !important;
+}
+
+#gallery .gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 24px rgba(197, 160, 101, 0.25) !important;
+}
+
+#gallery .gallery-note {
+  margin-top: 14px !important;
+  font-size: 0.82rem !important;
+  font-style: italic !important;
+  opacity: 0.8 !important;
+}
+
+/* Tampilan di Layar Laptop / Tablet (5 kolom x 2 baris = simetris sempurna) */
+@media (min-width: 769px) {
+  #gallery .gallery {
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  #gallery .gallery img:nth-child(1),
+  #gallery .gallery img:nth-child(6) {
+    grid-column: span 1 !important;
+    aspect-ratio: 3 / 4 !important;
+  }
 }
