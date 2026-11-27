@@ -1175,3 +1175,110 @@ header, nav, .navbar {
     aspect-ratio: 3 / 4 !important;
   }
 }
+/* =========================================================
+   POLESAN AMPLOP DIGITAL (.bank-card) & RSVP (#rsvp)
+   ========================================================= */
+
+/* 1. Kartu Rekening BCA Bergaya VIP Card */
+.bank-card {
+  position: relative !important;
+  background: linear-gradient(135deg, #ffffff 0%, #fcf8f0 100%) !important;
+  border: 1px solid rgba(197, 160, 101, 0.5) !important;
+  border-radius: 16px !important;
+  padding: 24px 20px !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06) !important;
+  transition: transform 0.35s ease, box-shadow 0.35s ease !important;
+  overflow: hidden !important;
+}
+
+.bank-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(197, 160, 101, 0.18) !important;
+}
+
+/* Efek kilau emas tipis di bagian atas kartu */
+.bank-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #b89352, #e6c88b, #b89352);
+}
+
+.bank-card .bank-logo img {
+  height: 28px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  margin-bottom: 10px !important;
+}
+
+.bank-card .account-name {
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 1.5px !important;
+  color: #6b5b45 !important;
+  margin-bottom: 4px !important;
+}
+
+/* Nomor Rekening Tegas & Mudah Dibaca */
+.bank-card h3 {
+  font-size: clamp(1.35rem, 4.5vw, 1.65rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: 2.5px !important;
+  color: #2c241b !important;
+  margin: 6px 0 16px !important;
+}
+
+/* Tombol Salin Nomor Rekening */
+.bank-card button {
+  padding: 11px 22px !important;
+  border-radius: 8px !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 1.2px !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+}
+
+.bank-card button:active {
+  transform: scale(0.96);
+}
+
+/* 2. Form Konfirmasi Kehadiran & Ucapan (#rsvp) */
+#rsvpForm {
+  background: rgba(255, 253, 249, 0.85) !important;
+  border: 1px solid rgba(197, 160, 101, 0.4) !important;
+  border-radius: 16px !important;
+  padding: 26px 22px !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05) !important;
+}
+
+#rsvpForm label {
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: #4a3f32 !important;
+  margin-bottom: 14px !important;
+}
+
+/* Ukuran font 16px (1rem) mencegah auto-zoom layar di HP iPhone saat mengetik */
+#rsvpForm input,
+#rsvpForm select,
+#rsvpForm textarea {
+  font-size: 1rem !important;
+  border: 1px solid rgba(197, 160, 101, 0.45) !important;
+  border-radius: 10px !important;
+  padding: 12px 14px !important;
+  margin-top: 6px !important;
+  background-color: #ffffff !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+#rsvpForm input:focus,
+#rsvpForm select:focus,
+#rsvpForm textarea:focus {
+  outline: none !important;
+  border-color: #c5a065 !important;
+  box-shadow: 0 0 0 3px rgba(197, 160, 101, 0.18) !important;
+}
