@@ -1,1 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kirim Undangan WA — Gia & Tio</title>
+<style>
+  body { font-family: sans-serif; background: #faf6ef; padding: 18px; max-width: 480px; margin: auto; color: #3a3026; }
+  .box { background: #fff; padding: 22px 18px; border-radius: 14px; border: 1px solid #d8c39e; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+  h2 { color: #8c6d3f; text-align: center; margin: 0 0 6px; font-size: 20px; }
+  p { text-align: center; font-size: 13px; color: #7a6855; margin: 0 0 18px; }
+  label { display: block; font-size: 13px; font-weight: bold; margin-bottom: 5px; }
+  input, select, textarea { width: 100%; padding: 11px; border-radius: 8px; border: 1px solid #c5a065; margin-bottom: 14px; box-sizing: border-box; font-size: 14px; background: #fffdf9; }
+  .btn-wa { width: 100%; padding: 13px; background: #25D366; color: #fff; border: none; border-radius: 8px; font-weight: bold; font-size: 15px; cursor: pointer; margin-bottom: 8px; }
+  .btn-copy { width: 100%; padding: 11px; background: #c5a065; color: #fff; border: none; border-radius: 8px; font-weight: bold; font-size: 14px; cursor: pointer; }
+  #notif { text-align: center; font-size: 13px; color: #2e7d32; font-weight: bold; margin-top: 10px; min-height: 18px; }
+</style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Kirim Undangan Gia & Tio</h2>
+  <p>Ketik nama tamu lalu pilih kontak di WhatsApp</p>
+
+  <label>Sapaan Tamu</label>
+  <select id="sapaan" onchange="buatPesan()">
+    <option value="Bapak/Ibu/Saudara/i">Bapak/Ibu/Saudara/i</option>
+    <option value="Bapak">Bapak</option>
+    <option value="Ibu">Ibu</option>
+    <option value="Keluarga Besar">Keluarga Besar</option>
+    <option value="Sahabat / Rekan">Sahabat / Rekan</option>
+    <option value="">(Tanpa Sapaan)</option>
+  </select>
+
+  <label>Nama Tamu Undangan</label>
+  <input type="text" id="nama" placeholder="Contoh: Hendrik Ceper" oninput="buatPesan()">
+
+  <label>Pratinjau Pesan</label>
+  <textarea id="pesan" rows="11"></textarea>
+
+  <button class="btn-wa" onclick="kirimWA()">📲 Kirim ke WhatsApp</button>
+  <button class="btn-copy" onclick="salinPesan()">📋 Salin Teks Pesan</button>
+  <div id="notif"></div>
+</div>
+
+<script>
+const URL_WEB = "https://github.io";
+
+function buatPesan() {
+  const sapaan = document.getElementById("sapaan").value;
+  const nama = document.getElementById("nama").value.trim();
+  const namaTampil = nama || "Tamu Undangan";
+  const tujuan = sapaan ? `${sapaan} *${namaTampil}*` : `*${namaTampil}*`;
+  const link = nama ? `${URL_WEB}?to=${nama.replace(/\s+/g, "+")}` : URL_WEB;
+
+  document.getElementById("pesan").value = `Assalamu’alaikum Warahmatullahi Wabarakatuh
+
+Tanpa mengurangi rasa hormat, perkenankan kami mengundang ${tujuan} untuk hadir dan memberikan doa restu pada acara pernikahan kami:
+
+*Gia & Tio*
+📅 Minggu, 17 Januari 2027
+📍 Jl. Sapan Melati II No. 68, Desa Sumbersari, Kab. Bandung
+
+Info lengkap acara & konfirmasi kehadiran dapat diakses melalui tautan berikut:
+${link}
+
+Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir.
+
+Wassalamu’alaikum Warahmatullahi Wabarakatuh
+
+Kami yang berbahagia,
+*Gia & Tio*`;
+}
+
+function kirimWA() {
+  const teks = document.getElementById("pesan").value;
+  window.open(`https://whatsapp.com{encodeURIComponent(teks)}`, "_blank");
+}
+
+function salinPesan() {
+  navigator.clipboard.writeText(document.getElementById("pesan").value).then(() => {
+    const n = document.getElementById("notif");
+    n.textContent = "✅ Pesan berhasil disalin!";
+    setTimeout(() => n.textContent = "", 2500);
+  });
+}
+
+buatPesan();
+</script>
+</body>
+</html>
 
