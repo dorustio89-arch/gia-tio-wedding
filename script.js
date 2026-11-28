@@ -388,11 +388,17 @@ function ubahTeksTombol(btn) {
    NAMA TAMU UNDANGAN (?to=Nama)
 ================================= */
 document.addEventListener("DOMContentLoaded", () => {
-    const params = new URLSearchParams(window.location.search);
-    const namaTamu = params.get("to");
+  const rawQuery = window.location.search;
+  let namaTamu = "";
 
-    if (namaTamu && namaTamu.trim() !== "") {
-        const namaBersih = namaTamu.trim();
+  if (rawQuery.includes("to=")) {
+    const ambilSetelahTo = rawQuery.split("to=")[1].split("&fbclid=")[0].split("&utm_")[0];
+    namaTamu = decodeURIComponent(ambilSetelahTo.replace(/\+/g, " "));
+  }
+
+  if (namaTamu && namaTamu.trim() !== "") {
+    const namaBersih = namaTamu.trim();
+
 
         // 1. Ganti teks "Bapak/Ibu/Saudara/i" di halaman pembuka
         const guestEl = document.getElementById("guestName");
